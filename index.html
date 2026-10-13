@@ -63,5 +63,14 @@ input.addEventListener('change',function(e){add(e.target.files)});
 drop.addEventListener('drop',function(e){add(e.dataTransfer.files)});
 btn.addEventListener('click',function(){if(!files.length)return;btn.disabled=true;btn.textContent='Uploading...';SDK.submit({files:files,document:'Separation notice from your last employer'});document.getElementById('form').style.display='none';document.getElementById('done').style.display='block'});
 </script>
+
+<!-- GovernmentOne chat assistant (Cognigy Webchat) -->
+<script src="https://github.com/Cognigy/Webchat/releases/latest/download/webchat.js"></script>
+<script>
+	// Endpoint: "OneGov Agent Webchat" (runs the OneGov Agent flow)
+	initWebchat(
+		"https://cognigy-endpoint-na1.nicecxone.com/54a616bbd9963f741e20d6fd3a76feb1f4c2718267fe18fd212e44926b8505ba"
+	);
+</script>
 </body>
 </html>
