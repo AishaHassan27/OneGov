@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GovernmentOne: Upload a document (preview)</title>
+<script>
+// Preview only: stands in for the Cognigy xApp SDK so the page can run on its own.
+window.SDK = { submit: function (payload) { console.log('SDK.submit', payload); } };
+</script>
+<style>
+:root{--brand:#0b3d91;--accent:#1f7a4d;--bg:#f4f7fb;--ink:#1a2433;--muted:#5b6778;--line:#d8e0ec}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:var(--brand);color:#fff;padding:16px 20px}
+header b{font-size:18px;letter-spacing:.2px}
+header span{display:block;font-size:13px;opacity:.85;margin-top:2px}
+main{max-width:560px;margin:0 auto;padding:20px}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px}
+h1{font-size:20px;margin:0 0 6px}
+p{margin:0 0 14px;color:var(--muted);font-size:15px;line-height:1.45}
+.doc{background:#eef3fb;border-left:4px solid var(--brand);padding:10px 12px;border-radius:6px;font-size:15px;margin-bottom:16px}
+#drop{border:2px dashed #9fb0c8;border-radius:10px;padding:28px 12px;text-align:center;color:var(--muted);cursor:pointer;font-size:15px}
+#drop.over{border-color:var(--brand);background:#eaf1ff}
+ul{list-style:none;padding:0;margin:12px 0 0}
+li{display:flex;justify-content:space-between;align-items:center;padding:8px 4px;border-bottom:1px solid #edf1f7;font-size:14px}
+li button{border:0;background:none;color:#a33;font-size:16px;cursor:pointer}
+#submit{margin-top:16px;width:100%;padding:14px;border:0;border-radius:8px;background:var(--accent);color:#fff;font-size:16px;font-weight:600;cursor:pointer}
+#submit:disabled{opacity:.45;cursor:default}
+.err{color:#b42318;font-size:13px;min-height:16px;margin:8px 0 0}
+.ok{display:none;text-align:center;padding:12px 0}
+.ok h2{color:var(--accent);margin:0 0 6px}
+.small{font-size:12px;color:var(--muted);margin-top:14px}
+</style>
+</head>
+<body>
+<header><b>GovernmentOne</b><span>Unemployment Insurance &middot; Secure document upload</span></header>
+<main>
+<div class="card" id="form">
+<h1>Upload your document</h1>
+<p>Please upload the document we need so we can keep your claim moving.</p>
+<div class="doc"><strong>Needed:</strong> Separation notice from your last employer<br /><span style="font-size:13px;color:#5b6778">Claim UI-2026-004871</span></div>
+<div id="drop">Tap to take a photo or choose a file<br /><span style="font-size:13px">PDF, JPG or PNG &middot; up to 10 MB each</span></div>
+<input id="file" type="file" accept=".pdf,.jpg,.jpeg,.png" hidden multiple />
+<p class="err" id="err"></p>
+<ul id="list"></ul>
+<button id="submit" type="button" disabled>Upload securely</button>
+<p class="small">This link is private to your claim and expires in 24 hours. GovernmentOne will never ask for your password or full Social Security number.</p>
+</div>
+<div class="card ok" id="done"><h2>Thank you</h2><p>We received your document. Your claim will move to review, usually within 2 business days. You can close this page.</p></div>
+</main>
+<script>
+var MAX_FILES=3,MAX_BYTES=10*1024*1024;
+var files=[];
+var input=document.getElementById('file'),drop=document.getElementById('drop'),list=document.getElementById('list'),err=document.getElementById('err'),btn=document.getElementById('submit');
+function readFile(f){return new Promise(function(res,rej){var r=new FileReader();r.onload=function(){res({name:f.name,type:f.type,size:f.size,dataUrl:r.result})};r.onerror=rej;r.readAsDataURL(f)})}
+async function add(fl){err.textContent='';for(var i=0;i<fl.length;i++){var f=fl[i];if(files.length>=MAX_FILES){err.textContent='You can upload up to '+MAX_FILES+' files.';break}if(f.size>MAX_BYTES){err.textContent=f.name+' is larger than 10 MB.';continue}files.push(await readFile(f))}render()}
+function render(){list.innerHTML='';files.forEach(function(f,i){var li=document.createElement('li');var s=document.createElement('span');s.textContent=f.name;var b=document.createElement('button');b.type='button';b.textContent='✕';b.addEventListener('click',function(){files.splice(i,1);render()});li.appendChild(s);li.appendChild(b);list.appendChild(li)});btn.disabled=files.length===0}
+drop.addEventListener('click',function(){input.click()});
+input.addEventListener('change',function(e){add(e.target.files)});
+['dragover','dragenter'].forEach(function(ev){drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.add('over')})});
+['dragleave','drop'].forEach(function(ev){drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.remove('over')})});
+drop.addEventListener('drop',function(e){add(e.dataTransfer.files)});
+btn.addEventListener('click',function(){if(!files.length)return;btn.disabled=true;btn.textContent='Uploading...';SDK.submit({files:files,document:'Separation notice from your last employer'});document.getElementById('form').style.display='none';document.getElementById('done').style.display='block'});
+</script>
+</body>
+</html>
