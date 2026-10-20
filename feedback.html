@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0b0c0c" />
+<title>Give feedback – Unemployment claim – GovernmentOne</title>
+<style>
+:root{--text:#0b0c0c;--secondary:#505a5f;--link:#1d70b8;--border:#b1b4b6;--bg-light:#f3f2f1;--blue:#1d70b8;--green:#00703c;--red:#d4351c;--yellow:#ffdd00}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;font-size:1.1875rem;line-height:1.32;color:var(--text);background:#fff}
+a{color:var(--link)}
+.width{max-width:960px;margin:0 15px}
+@media(min-width:641px){.width{margin:0 30px}}
+@media(min-width:1020px){.width{margin:0 auto}}
+.header{background:#0b0c0c;border-bottom:10px solid var(--blue);color:#fff}
+.header .width{padding:10px 0}
+.logo{display:inline-flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:700;font-size:1.75rem}
+.logo-mark{width:34px;height:34px;border:3px solid #fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:1.05rem}
+.service{background:var(--bg-light);border-bottom:1px solid var(--border)}
+.service .width{padding:10px 0;font-weight:700;font-size:1.125rem}
+.phase{padding:10px 0;border-bottom:1px solid var(--border);font-size:1rem}
+.tag{display:inline-block;background:var(--blue);color:#fff;font-weight:700;font-size:.875rem;text-transform:uppercase;letter-spacing:1px;padding:2px 8px 1px;margin-right:10px}
+main{padding:30px 0 50px}
+h1{font-size:2.25rem;line-height:1.1;margin:0 0 20px}
+h2{font-size:1.5rem;margin:30px 0 10px}
+.lead{font-size:1.5rem;line-height:1.25}
+.ref{background:var(--bg-light);border-left:5px solid var(--blue);padding:15px;margin:20px 0;font-size:1rem}
+fieldset{border:0;padding:0;margin:0 0 30px}
+legend{font-weight:700;font-size:1.5rem;padding:0;margin-bottom:10px}
+.hint{color:var(--secondary);margin:0 0 15px;font-size:1.1875rem}
+.radios label{display:flex;align-items:center;gap:15px;padding:8px 0;cursor:pointer}
+.radios input{width:40px;height:40px;margin:0;accent-color:var(--text);flex:none}
+.rating{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:5px}
+.rating label{border:2px solid var(--text);padding:10px 16px;cursor:pointer;min-width:56px;text-align:center;font-weight:700}
+.rating input{position:absolute;opacity:0}
+.rating input:checked+span{background:var(--text);color:#fff;display:block;margin:-10px -16px;padding:10px 16px}
+.rating label:focus-within{outline:3px solid var(--yellow);box-shadow:0 0 0 5px var(--text)}
+.scale{display:flex;justify-content:space-between;font-size:1rem;color:var(--secondary);max-width:520px}
+textarea{width:100%;min-height:140px;font:inherit;padding:8px;border:2px solid var(--text);border-radius:0}
+textarea:focus{outline:3px solid var(--yellow);box-shadow:inset 0 0 0 2px}
+.count{font-size:1rem;color:var(--secondary);margin-top:5px}
+button{font:inherit;font-weight:400;background:var(--green);color:#fff;border:0;box-shadow:0 2px 0 #002d18;padding:8px 14px;cursor:pointer}
+button:hover{background:#005a30}
+button:focus-visible{background:var(--yellow);color:var(--text);outline:3px solid transparent;box-shadow:0 2px 0 var(--text)}
+.error{color:var(--red);font-weight:700;display:none;margin:0 0 10px}
+.error.show{display:block}
+.err-sum{border:5px solid var(--red);padding:15px;margin-bottom:30px;display:none}
+.err-sum.show{display:block}
+.err-sum h2{margin:0 0 10px;font-size:1.5rem}
+.err-sum a{color:var(--red);font-weight:700}
+.confirm{background:var(--green);color:#fff;text-align:center;padding:35px;display:none;margin-bottom:30px}
+.confirm h1{color:#fff;margin:0 0 15px}
+.confirm .code{font-size:1.9rem;font-weight:700}
+footer{background:var(--bg-light);border-top:1px solid var(--border);padding:25px 0;font-size:1rem}
+.demo{background:#fff4cc;border:1px solid #c9a800;padding:8px 12px;font-size:.9rem;margin-top:20px}
+</style>
+</head>
+<body>
+<header class="header"><div class="width"><a class="logo" href="#"><span class="logo-mark">G1</span>GovernmentOne</a></div></header>
+<div class="service"><div class="width">Unemployment claim</div></div>
+<div class="width">
+  <div class="phase"><span class="tag">Beta</span>This is a new service – your feedback will help us improve it.</div>
+</div>
+<main class="width" id="main">
+
+  <div class="confirm" id="confirm" role="status" tabindex="-1">
+    <h1>Feedback sent</h1>
+    <p>Your reference number</p>
+    <p class="code" id="refcode">FB-2026-000000</p>
+  </div>
+
+  <div id="thanks" style="display:none">
+    <h2>What happens next</h2>
+    <p>Thank you, Jennifer. We read every response and use it to improve how we help people with their claims. We will not contact you about this feedback unless you ask us to.</p>
+    <p>Your claim <strong>UI-2026-004871</strong> is not affected by this survey. If you need help with your claim, call <strong>0808 157 0142</strong> (free, Monday to Friday, 8am to 6pm).</p>
+  </div>
+
+  <div id="formwrap">
+    <h1>Tell us about your experience</h1>
+    <p class="lead">This takes about 2 minutes. You recently spoke with one of our caseworkers about your unemployment claim.</p>
+    <div class="ref">Claim reference: <strong>UI-2026-004871</strong><br>Please do not include personal details such as your National Insurance number in your comments.</div>
+
+    <div class="err-sum" id="errsum" role="alert" tabindex="-1">
+      <h2>There is a problem</h2>
+      <ul id="errlist"></ul>
+    </div>
+
+    <form id="f" novalidate>
+      <fieldset id="q1">
+        <legend>1. Overall, how satisfied were you with the help you received from the caseworker?</legend>
+        <p class="error" id="e1">Select how satisfied you were</p>
+        <div class="rating" role="radiogroup">
+          <label><input type="radio" name="sat" value="1"><span>1</span></label>
+          <label><input type="radio" name="sat" value="2"><span>2</span></label>
+          <label><input type="radio" name="sat" value="3"><span>3</span></label>
+          <label><input type="radio" name="sat" value="4"><span>4</span></label>
+          <label><input type="radio" name="sat" value="5"><span>5</span></label>
+        </div>
+        <div class="scale"><span>1 = Very dissatisfied</span><span>5 = Very satisfied</span></div>
+      </fieldset>
+
+      <fieldset id="q2" class="radios">
+        <legend>2. Did the caseworker help you with what you needed?</legend>
+        <p class="error" id="e2">Select an answer</p>
+        <label><input type="radio" name="resolved" value="yes"> Yes, fully</label>
+        <label><input type="radio" name="resolved" value="partly"> Partly</label>
+        <label><input type="radio" name="resolved" value="no"> No</label>
+      </fieldset>
+
+      <fieldset class="radios">
+        <legend>3. How easy was it to upload your P45?</legend>
+        <p class="hint">Optional. Skip this if you did not upload a document.</p>
+        <label><input type="radio" name="upload" value="very-easy"> Very easy</label>
+        <label><input type="radio" name="upload" value="easy"> Easy</label>
+        <label><input type="radio" name="upload" value="neither"> Neither easy nor difficult</label>
+        <label><input type="radio" name="upload" value="difficult"> Difficult</label>
+        <label><input type="radio" name="upload" value="very-difficult"> Very difficult</label>
+      </fieldset>
+
+      <fieldset class="radios">
+        <legend>4. How well did the caseworker understand your situation?</legend>
+        <label><input type="radio" name="understood" value="well"> Very well</label>
+        <label><input type="radio" name="understood" value="ok"> Well enough</label>
+        <label><input type="radio" name="understood" value="poor"> Not well</label>
+      </fieldset>
+
+      <fieldset class="radios">
+        <legend>5. Did the caseworker explain clearly what happens next with your claim?</legend>
+        <label><input type="radio" name="handover" value="yes"> Yes, very clearly</label>
+        <label><input type="radio" name="handover" value="partly"> Partly</label>
+        <label><input type="radio" name="handover" value="no"> No</label>
+      </fieldset>
+
+      <fieldset class="radios">
+        <legend>6. Were you able to speak in the language you prefer?</legend>
+        <label><input type="radio" name="lang" value="yes"> Yes</label>
+        <label><input type="radio" name="lang" value="interp"> Yes, with an interpreter</label>
+        <label><input type="radio" name="lang" value="no"> No</label>
+      </fieldset>
+
+      <fieldset>
+        <legend><label for="comments">7. How could the caseworker or our service improve?</label></legend>
+        <p class="hint">Optional. Do not include personal or financial information.</p>
+        <textarea id="comments" name="comments" maxlength="1200"></textarea>
+        <div class="count"><span id="n">1200</span> characters remaining</div>
+      </fieldset>
+
+      <button type="submit">Send feedback</button>
+    </form>
+    <p class="demo">Demonstration page for the GovernmentOne capstone. GovernmentOne is a fictional agency; responses are not stored.</p>
+  </div>
+</main>
+<footer><div class="width">© GovernmentOne (fictional demonstration agency) · <a href="index.html">Back to claim service</a> · Privacy: we process feedback under UK GDPR and keep it for 12 months.</div></footer>
+<script>
+(function(){
+  var f=document.getElementById('f'),ta=document.getElementById('comments'),n=document.getElementById('n');
+  ta.addEventListener('input',function(){n.textContent=1200-ta.value.length});
+  function val(name){var c=f.querySelector('input[name="'+name+'"]:checked');return c?c.value:null}
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var errs=[];
+    [['sat','e1','q1','Select how satisfied you were'],['resolved','e2','q2','Select whether you got what you needed']].forEach(function(r){
+      var bad=!val(r[0]);document.getElementById(r[1]).classList.toggle('show',bad);
+      if(bad)errs.push('<li><a href="#'+r[2]+'">'+r[3]+'</a></li>');
+    });
+    var s=document.getElementById('errsum');
+    if(errs.length){document.getElementById('errlist').innerHTML=errs.join('');s.classList.add('show');s.focus();return}
+    s.classList.remove('show');
+    var data={claim:'UI-2026-004871',sat:val('sat'),resolved:val('resolved'),upload:val('upload'),understood:val('understood'),handover:val('handover'),lang:val('lang'),comments:ta.value};
+    console.log('feedback',data);
+    document.getElementById('refcode').textContent='FB-2026-'+String(Math.floor(100000+Math.random()*900000));
+    document.getElementById('formwrap').style.display='none';
+    document.getElementById('confirm').style.display='block';
+    document.getElementById('thanks').style.display='block';
+    document.getElementById('confirm').focus();window.scrollTo(0,0);
+  });
+})();
+</script>
+</body>
+</html>
